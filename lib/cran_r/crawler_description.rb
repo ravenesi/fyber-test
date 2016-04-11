@@ -45,7 +45,7 @@ module CranR
     end
 
     def string_to_emails_and_names(data)
-      data.split(", ").map do |user_string|
+      data.split(",").map do |user_string|
         if user_string.include? '<'
           user_string =~ /^([^<]*)<([^>]*)>$/
           { name: $1.to_s.strip, email: $2 }
