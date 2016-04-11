@@ -1,0 +1,14 @@
+base: &base
+  adapter: postgresql
+  encoding: unicode
+  database: fyber_development
+  pool: 100
+  username: fyber
+  password: fyber
+
+development: &default
+  <<: *base
+
+test:
+  <<: *default
+  database: fyber_test

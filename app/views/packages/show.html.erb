@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Package list</div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <ul class="list-group">
+        <% @package.attributes.each do |key, value| %>
+        <% unless %w(created_at updated_at status id).include? key %>
+        <li class="list-group-item">
+          <% if %w(maintainers authors).include? key %>
+          <h5><%= key.humanize %></h5>
+          <ul class="list-group">
+            <% value.each do |value_item| %>
+            <% name = value_item.fetch('name') %>
+            <li class="list-group-item"><%= name unless name.blank? %>
+            <% if(email = value_item.fetch('email', false)) %>
+              <%= "[#{email}]" unless email.blank? %>
+            <% end %>
+            </li>
+            <% end %>
+          </ul>
+          <% else %>
+          <strong><%= key.humanize %>: </strong>
+          <%= value %>
+          <% end %>
+        </li>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

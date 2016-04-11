@@ -1,0 +1,7 @@
+Package: abbyyR
+Version: 0.3
+Depends: R (>= 3.2.0)
+Imports: httr, XML, curl, RecordLinkage, readr
+Suggests: testthat, knitr (>= 1.11)
+License: MIT + file LICENSE
+NeedsCompilation: no

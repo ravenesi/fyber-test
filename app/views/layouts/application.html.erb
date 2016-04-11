@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fyber.com - Cran R</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class="container">
+    <div class="page-header">
+      <h1><%= title %></h1>
+    </div>
+    <%= yield %>
+  </div>
+</body>
+</html>

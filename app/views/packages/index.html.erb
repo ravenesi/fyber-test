@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Package list</div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <tr>
+          <% package_index_columns.each do |column| %>
+            <th><%= column.humanize %></th>
+          <% end %>
+          <th>Action</th>
+        </tr>
+        <tr>
+          <% if @packages.size == 0 %>
+            <td colspan="<%= package_index_columns.size %>">
+              No packages indexed.
+            </td>
+          <% else %>
+            <% @packages.each do |package| %>
+              <tr>
+              <% package_index_columns.each do |column| %>
+                <td><%= package.method(column).call %></td>
+              <% end %>
+              <td><%= link_to 'Detail', package_path(package) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
